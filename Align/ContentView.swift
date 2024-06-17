@@ -27,3 +27,8 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+//Write me some code please
+// MARK: - CodeAI Output
+// *** PLEASE SUBSCRIBE TO GAIN CodeAI ACCESS! ***
+/// To subscribe, open CodeAI MacOS app and tap SUBSCRIBE
