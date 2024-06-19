@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     var body: some View {
         VStack {
@@ -28,7 +29,5 @@ struct ContentView: View {
     ContentView()
 }
 
-//Write me some code please
+//How do i impliment supabase?
 // MARK: - CodeAI Output
-// *** PLEASE SUBSCRIBE TO GAIN CodeAI ACCESS! ***
-/// To subscribe, open CodeAI MacOS app and tap SUBSCRIBE

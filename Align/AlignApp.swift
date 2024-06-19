@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import Supabase
 
 @main
+
+
 struct AlignApp: App {
     var body: some Scene {
         WindowGroup {
