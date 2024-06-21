@@ -18,6 +18,8 @@
 		24FCD4B72C226B0C009BDEB0 /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 24FCD4B62C226B0C009BDEB0 /* Realtime */; };
 		24FCD4B92C226B0C009BDEB0 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 24FCD4B82C226B0C009BDEB0 /* Storage */; };
 		24FCD4BB2C226B0C009BDEB0 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 24FCD4BA2C226B0C009BDEB0 /* Supabase */; };
+		24FCD4BE2C25D1FD009BDEB0 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FCD4BD2C25D1F8009BDEB0 /* AuthManager.swift */; };
+		24FCD4C42C25F521009BDEB0 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FCD4C32C25F51B009BDEB0 /* KeychainHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		24BE70AB2C1FC2320095912C /* AlignUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlignUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24FCD4AE2C213C33009BDEB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		24FCD4BC2C229E0C009BDEB0 /* Align.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Align.entitlements; sourceTree = "<group>"; };
+		24FCD4BD2C25D1F8009BDEB0 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		24FCD4C32C25F51B009BDEB0 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +107,9 @@
 			children = (
 				24FCD4BC2C229E0C009BDEB0 /* Align.entitlements */,
 				24BE70942C1FC2300095912C /* AlignApp.swift */,
+				24FCD4C32C25F51B009BDEB0 /* KeychainHelper.swift */,
 				24FCD4AE2C213C33009BDEB0 /* ViewController.swift */,
+				24FCD4BD2C25D1F8009BDEB0 /* AuthManager.swift */,
 				24BE70962C1FC2300095912C /* ContentView.swift */,
 				24BE70982C1FC2320095912C /* Assets.xcassets */,
 				24BE709A2C1FC2320095912C /* Preview Content */,
@@ -261,6 +267,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				24FCD4AF2C213C33009BDEB0 /* ViewController.swift in Sources */,
+				24FCD4BE2C25D1FD009BDEB0 /* AuthManager.swift in Sources */,
+				24FCD4C42C25F521009BDEB0 /* KeychainHelper.swift in Sources */,
 				24BE70972C1FC2300095912C /* ContentView.swift in Sources */,
 				24BE70952C1FC2300095912C /* AlignApp.swift in Sources */,
 			);
