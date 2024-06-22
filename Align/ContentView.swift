@@ -29,5 +29,3 @@ struct ContentView: View {
     ContentView()
 }
 
-//How do i impliment supabase?
-// MARK: - CodeAI Output
