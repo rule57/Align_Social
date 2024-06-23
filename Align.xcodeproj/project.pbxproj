@@ -52,6 +52,8 @@
 		24FCD5072C2669C9009BDEB0 /* FirebaseVertexAI-Preview in Frameworks */ = {isa = PBXBuildFile; productRef = 24FCD5062C2669C9009BDEB0 /* FirebaseVertexAI-Preview */; };
 		24FCD50B2C268CBD009BDEB0 /* SignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FCD50A2C268CB2009BDEB0 /* SignInWithApple.swift */; };
 		24FCD50F2C268D67009BDEB0 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FCD50E2C268D64009BDEB0 /* SignInView.swift */; };
+		24FCD5112C274082009BDEB0 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FCD5102C274076009BDEB0 /* CameraView.swift */; };
+		24FCD5132C27556A009BDEB0 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FCD5122C275565009BDEB0 /* ImagePickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		24FCD4CA2C266542009BDEB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		24FCD50A2C268CB2009BDEB0 /* SignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithApple.swift; sourceTree = "<group>"; };
 		24FCD50E2C268D64009BDEB0 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		24FCD5102C274076009BDEB0 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		24FCD5122C275565009BDEB0 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,8 @@
 				24FCD4C32C25F51B009BDEB0 /* KeychainHelper.swift */,
 				24FCD4AE2C213C33009BDEB0 /* ViewController.swift */,
 				24BE70962C1FC2300095912C /* ContentView.swift */,
+				24FCD5102C274076009BDEB0 /* CameraView.swift */,
+				24FCD5122C275565009BDEB0 /* ImagePickerView.swift */,
 				24BE70982C1FC2320095912C /* Assets.xcassets */,
 				24BE709A2C1FC2320095912C /* Preview Content */,
 			);
@@ -371,8 +377,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				24FCD4AF2C213C33009BDEB0 /* ViewController.swift in Sources */,
+				24FCD5112C274082009BDEB0 /* CameraView.swift in Sources */,
 				24FCD4C42C25F521009BDEB0 /* KeychainHelper.swift in Sources */,
 				24BE70972C1FC2300095912C /* ContentView.swift in Sources */,
+				24FCD5132C27556A009BDEB0 /* ImagePickerView.swift in Sources */,
 				24BE70952C1FC2300095912C /* AlignApp.swift in Sources */,
 				24FCD50F2C268D67009BDEB0 /* SignInView.swift in Sources */,
 				24FCD50B2C268CBD009BDEB0 /* SignInWithApple.swift in Sources */,
@@ -575,6 +583,7 @@
 				DEVELOPMENT_TEAM = 57F7AC83MF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Hey Man!  Can I please use the camera, itd help me out a lot.  Thanks!!!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

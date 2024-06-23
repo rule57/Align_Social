@@ -18,6 +18,7 @@ struct SignInView: View {
         VStack {
             if signInWithApple.isSignedIn {
                 Text("You're signed in!")
+                CameraView()
             } else {
                 SignInWithAppleButton()
                     .frame(width: 280, height: 45)
