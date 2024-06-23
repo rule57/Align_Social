@@ -4,110 +4,153 @@
 //
 //  Created by William Rule on 6/22/24.
 //
-import UIKit
+import SwiftUI
 import AVFoundation
 
-class CameraView2Controller: UIViewController {
-    
-    var captureSession: AVCaptureSession!
-    var previewLayer: AVCaptureVideoPreviewLayer!
-    var capturePhotoOutput: AVCapturePhotoOutput!
-    var capturedImage: UIImage?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setupCaptureSession()
-        setupPreviewLayer()
-        setupCapturePhotoOutput()
-        setupShutterButton()
-    }
-    
-    private func setupCaptureSession() {
-        captureSession = AVCaptureSession()
-        captureSession.sessionPreset = .photo
-        
-        guard let backCamera = AVCaptureDevice.default(for: .video) else {
-            print("Unable to access back camera!")
-            return
-        }
-        
-        do {
-            let input = try AVCaptureDeviceInput(device: backCamera)
-            captureSession.addInput(input)
-        } catch let error  {
-            print("Error Unable to initialize back camera:  \(error.localizedDescription)")
-        }
-    }
-    
-    private func setupPreviewLayer() {
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = view.frame
-        previewLayer.videoGravity = .resizeAspectFill
-        view.layer.addSublayer(previewLayer)
-        
-        captureSession.startRunning()
-    }
-    
-    private func setupCapturePhotoOutput() {
-        capturePhotoOutput = AVCapturePhotoOutput()
-        capturePhotoOutput.isHighResolutionCaptureEnabled = true
-        captureSession.addOutput(capturePhotoOutput)
-    }
-    
-    private func setupShutterButton() {
-        let shutterButton = UIButton(type: .system)
-        shutterButton.setTitle("Capture", for: .normal)
-        shutterButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
-        shutterButton.backgroundColor = .white
-        shutterButton.setTitleColor(.black, for: .normal)
-        shutterButton.frame = CGRect(x: (view.frame.width - 100) / 2, y: view.frame.height - 300, width: 100, height: 50)
-        shutterButton.layer.cornerRadius = 10
-        shutterButton.addTarget(self, action: #selector(shutterButtonTapped), for: .touchUpInside)
-        
-        view.addSubview(shutterButton)
-    }
-    
-    @objc private func shutterButtonTapped() {
-        let settings = AVCapturePhotoSettings()
-        settings.flashMode = .auto
-        capturePhotoOutput.capturePhoto(with: settings, delegate: self)
-    }
-    
-    private func showCapturedImage(_ image: UIImage) {
-        let imageView = UIImageView(image: image)
-        imageView.frame = view.frame
-        imageView.contentMode = .scaleAspectFill
-        imageView.isUserInteractionEnabled = true
-        view.addSubview(imageView)
-        
-        let saveButton = UIButton(type: .system)
-        saveButton.setTitle("Save", for: .normal)
-        saveButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
-        saveButton.backgroundColor = .white
-        saveButton.setTitleColor(.black, for: .normal)
-        saveButton.frame = CGRect(x: (view.frame.width - 100) / 2, y: view.frame.height - 150, width: 100, height: 50)
-        saveButton.layer.cornerRadius = 10
-        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
-        
-        imageView.addSubview(saveButton)
-    }
-    
-    @objc private func saveButtonTapped() {
-        guard let image = capturedImage else { return }
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-        capturedImage = nil
-        view.subviews.last?.removeFromSuperview() // Remove the image view with the save button
-    }
-}
-
-extension CameraView2Controller: AVCapturePhotoCaptureDelegate {
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        guard let imageData = photo.fileDataRepresentation() else { return }
-        capturedImage = UIImage(data: imageData)
-        if let image = capturedImage {
-            showCapturedImage(image)
-        }
-    }
-}
-
+//struct CameraView2Controller: View {
+//    @State private var captureSession: AVCaptureSession!
+//    @State private var previewLayer: AVCaptureVideoPreviewLayer!
+//    @State private var capturePhotoOutput: AVCapturePhotoOutput!
+//    @State private var capturedImage: UIImage?
+//    @State private var showCapturedImage = false
+//
+//    var body: some View {
+//        ZStack {
+//            CameraPreview(captureSession: $captureSession, previewLayer: $previewLayer)
+//                .edgesIgnoringSafeArea(.all)
+//                .onAppear {
+//                    setupCaptureSession()
+//                }
+//            
+//            VStack {
+//                Spacer()
+//                
+//                Button(action: {
+//                    capturePhoto()
+//                }) {
+//                    Text("Capture")
+//                        .font(.headline)
+//                        .foregroundColor(.white)
+//                        .padding()
+//                        .background(Color.blue)
+//                        .cornerRadius(10)
+//                }
+//                .padding(.bottom, 30)
+//            }
+//            
+//            if showCapturedImage, let capturedImage = capturedImage {
+//                CapturedImageView(image: capturedImage, show: $showCapturedImage)
+//                    .edgesIgnoringSafeArea(.all)
+//            }
+//        }
+//        .navigationBarHidden(true)
+//    }
+//
+//    private func setupCaptureSession() {
+//        captureSession = AVCaptureSession()
+//        captureSession.sessionPreset = .photo
+//        
+//        guard let backCamera = AVCaptureDevice.default(for: .video) else {
+//            print("Unable to access back camera!")
+//            return
+//        }
+//        
+//        do {
+//            let input = try AVCaptureDeviceInput(device: backCamera)
+//            captureSession.addInput(input)
+//        } catch let error {
+//            print("Error Unable to initialize back camera:  \(error.localizedDescription)")
+//            return
+//        }
+//        
+//        capturePhotoOutput = AVCapturePhotoOutput()
+//        capturePhotoOutput.isHighResolutionCaptureEnabled = true
+//        captureSession.addOutput(capturePhotoOutput)
+//        
+//        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+//        previewLayer.videoGravity = .resizeAspectFill
+//        previewLayer.frame = UIScreen.main.bounds
+//    }
+//
+//    private func capturePhoto() {
+//        let settings = AVCapturePhotoSettings()
+//        let coordinator = Coordinator(parent: self)
+//        capturePhotoOutput.capturePhoto(with: settings, delegate: coordinator)
+//    }
+//}
+//
+//extension CameraView2Controller {
+//    class Coordinator: NSObject, AVCapturePhotoCaptureDelegate {
+//        var parent: CameraView
+//
+//        init(parent: CameraView) {
+//            self.parent = parent
+//        }
+//
+//        func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+//            guard let imageData = photo.fileDataRepresentation() else { return }
+//            parent.capturedImage = UIImage(data: imageData)
+//            parent.showCapturedImage = true
+//        }
+//    }
+//}
+//
+//struct CameraPreview: UIViewRepresentable {
+//    @Binding var captureSession: AVCaptureSession!
+//    @Binding var previewLayer: AVCaptureVideoPreviewLayer!
+//
+//    func makeUIView(context: Context) -> UIView {
+//        let view = UIView(frame: UIScreen.main.bounds)
+//        view.layer.addSublayer(previewLayer)
+//        captureSession.startRunning()
+//        return view
+//    }
+//
+//    func updateUIView(_ uiView: UIView, context: Context) {}
+//}
+//
+//struct CapturedImageView: View {
+//    var image: UIImage
+//    @Binding var show: Bool
+//
+//    var body: some View {
+//        VStack {
+//            Image(uiImage: image)
+//                .resizable()
+//                .scaledToFit()
+//                .frame(maxWidth: .infinity, maxHeight: .infinity)
+//            
+//            HStack {
+//                Button(action: {
+//                    saveImage()
+//                }) {
+//                    Text("Save")
+//                        .font(.headline)
+//                        .foregroundColor(.white)
+//                        .padding()
+//                        .background(Color.green)
+//                        .cornerRadius(10)
+//                }
+//                
+//                Button(action: {
+//                    show = false
+//                }) {
+//                    Text("Dismiss")
+//                        .font(.headline)
+//                        .foregroundColor(.white)
+//                        .padding()
+//                        .background(Color.red)
+//                        .cornerRadius(10)
+//                }
+//            }
+//            .padding()
+//        }
+//        .background(Color.black.edgesIgnoringSafeArea(.all))
+//    }
+//
+//    private func saveImage() {
+//        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+//        show = false
+//    }
+//}
+//
