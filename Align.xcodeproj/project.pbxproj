@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24918A482C27B1B5000EE644 /* CameraView2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24918A472C27B179000EE644 /* CameraView2Controller.swift */; };
 		24BE70952C1FC2300095912C /* AlignApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE70942C1FC2300095912C /* AlignApp.swift */; };
 		24BE70972C1FC2300095912C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE70962C1FC2300095912C /* ContentView.swift */; };
 		24BE70992C1FC2320095912C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24BE70982C1FC2320095912C /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24918A472C27B179000EE644 /* CameraView2Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView2Controller.swift; sourceTree = "<group>"; };
 		24BE70912C1FC2300095912C /* Align.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Align.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24BE70942C1FC2300095912C /* AlignApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignApp.swift; sourceTree = "<group>"; };
 		24BE70962C1FC2300095912C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		24BE70932C1FC2300095912C /* Align */ = {
 			isa = PBXGroup;
 			children = (
+				24918A472C27B179000EE644 /* CameraView2Controller.swift */,
 				24FCD4CA2C266542009BDEB0 /* GoogleService-Info.plist */,
 				24FCD4BC2C229E0C009BDEB0 /* Align.entitlements */,
 				24FCD50A2C268CB2009BDEB0 /* SignInWithApple.swift */,
@@ -383,6 +386,7 @@
 				24FCD5132C27556A009BDEB0 /* ImagePickerView.swift in Sources */,
 				24BE70952C1FC2300095912C /* AlignApp.swift in Sources */,
 				24FCD50F2C268D67009BDEB0 /* SignInView.swift in Sources */,
+				24918A482C27B1B5000EE644 /* CameraView2Controller.swift in Sources */,
 				24FCD50B2C268CBD009BDEB0 /* SignInWithApple.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,6 +473,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Align uses the camera for its primary function (replace with more descriptive thingy)";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -526,6 +531,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Align uses the camera for its primary function (replace with more descriptive thingy)";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
