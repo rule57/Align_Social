@@ -90,7 +90,9 @@ struct CameraView: View {
     private func capturePhoto() {
         let settings = AVCapturePhotoSettings()
         capturePhotoOutput?.capturePhoto(with: settings, delegate: Coordinator(parent: self))
+        print("cp called")
     }
+
 }
 
 
@@ -106,6 +108,7 @@ extension CameraView {
             guard let imageData = photo.fileDataRepresentation() else { return }
             parent.capturedImage = UIImage(data: imageData)
             parent.showCapturedImage = true
+            print("photooutput called")
         }
     }
 }
